@@ -16,7 +16,7 @@ export class LinkedList {
 
     append(value) {
         let currentNode = this.HEAD;
-        while (currentNode.nextNode !== null) {
+        while (currentNode.nextNode) {
             currentNode = currentNode.nextNode;
         }
         currentNode.nextNode = new Node(value);
@@ -24,7 +24,7 @@ export class LinkedList {
 
     contains(value) {
         let currentNode = this.HEAD;
-        while (currentNode !== null) {
+        while (currentNode) {
             if (currentNode.value === value) return true;
             currentNode = currentNode.nextNode;
         }
@@ -33,8 +33,8 @@ export class LinkedList {
 
     find(value) {
         let currentNode = this.HEAD;
-        let depthCount = 1;
-        while (currentNode !== null) {
+        let depthCount = 0;
+        while (currentNode) {
             if (currentNode.value === value) return depthCount;
             currentNode = currentNode.nextNode;
             depthCount++;
@@ -46,7 +46,7 @@ export class LinkedList {
         let currentNode = this.HEAD;
         let string = `( ${currentNode.value} )`;
         currentNode = currentNode.nextNode;
-        while (currentNode !== null) {
+        while (currentNode) {
             string += ` -> ( ${currentNode.value} )`;
             if (!currentNode.nextNode) {
                 string += ` -> ${currentNode.nextNode}`;
@@ -56,8 +56,35 @@ export class LinkedList {
         return string;
     }
 
+    removeAt(index) {
+        let currentNode = this.HEAD;
+        let previousNode = this.HEAD;
+        let depthCount = 0;
+
+        if (index === 0) {
+            if (currentNode.nextNode) {
+                this.HEAD = this.HEAD.nextNode;
+            } else {
+                this.HEAD.value = null;
+                this.HEAD.nextNode = null;
+            }
+            return;
+        }
+
+        while (currentNode) {
+            if (depthCount === index) {
+                previousNode.nextNode = currentNode.nextNode;
+                return;
+            }
+            previousNode = currentNode;
+            currentNode = currentNode.nextNode;
+            depthCount++;
+        }
+        console.error(new Error("range error bro"));
+    }
+
     get size() {
-        let depthCount = 1;
+        let depthCount = 0;
         let currentNode = this.HEAD;
         while (currentNode.nextNode !== null) {
             currentNode = currentNode.nextNode;
