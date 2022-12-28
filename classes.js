@@ -31,7 +31,30 @@ export class LinkedList {
         return false;
     }
 
+    find(value) {
+        let currentNode = this.HEAD;
+        let depthCount = 1;
+        while (currentNode !== null) {
+            if (currentNode.value === value) return depthCount;
+            currentNode = currentNode.nextNode;
+            depthCount++;
+        }
+        return null;
+    }
 
+    toString() {
+        let currentNode = this.HEAD;
+        let string = `( ${currentNode.value} )`;
+        currentNode = currentNode.nextNode;
+        while (currentNode !== null) {
+            string += ` -> ( ${currentNode.value} )`;
+            if (!currentNode.nextNode) {
+                string += ` -> ${currentNode.nextNode}`;
+            }
+            currentNode = currentNode.nextNode;
+        }
+        return string;
+    }
 
     get size() {
         let depthCount = 1;
