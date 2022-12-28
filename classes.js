@@ -70,6 +70,23 @@ export class LinkedList {
         return string;
     }
 
+    insertAt(value, index) {
+        let currentNode = this.HEAD;
+        let previousNode = this.HEAD;
+        let depthCount = 0;
+
+        while (currentNode) {
+            if (depthCount === index) {
+                previousNode.nextNode = new Node(value, currentNode);
+                return;
+            }
+            previousNode = currentNode;
+            currentNode = currentNode.nextNode;
+            depthCount++;
+        }
+        console.error(new Error("range error bro"));
+    }
+
     removeAt(index) {
         let currentNode = this.HEAD;
         let previousNode = this.HEAD;
