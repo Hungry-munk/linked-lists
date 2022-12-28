@@ -1,17 +1,7 @@
 import { Node, LinkedList } from "./classes.js";
 
-const exampleList = {
-    value: 1,
-    nextNode: {
-        value: 2,
-        nextNode: {
-            value: 3,
-            nextNode: null,
-        },
-    },
-};
 const linkedlist = new LinkedList();
-linkedlist.HEAD = exampleList;
 
+linkedlist.append(2);
 linkedlist.append(33);
-console.log(linkedlist);
+console.log(linkedlist.contains(33));
