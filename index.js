@@ -6,16 +6,12 @@ const exampleList = {
         value: 2,
         nextNode: {
             value: 3,
-            nextNode: {
-                value: 4,
-                nextNode: null,
-            },
+            nextNode: null,
         },
     },
 };
 const linkedlist = new LinkedList();
 linkedlist.HEAD = exampleList;
 
-console.log(linkedlist);
 linkedlist.append(33);
 console.log(linkedlist);
