@@ -6,5 +6,5 @@ linkedlist.append(2);
 linkedlist.append(33);
 linkedlist.append(33);
 console.log(linkedlist.toString());
-linkedlist.removeAt(0);
+linkedlist.pop();
 console.log(linkedlist.toString());

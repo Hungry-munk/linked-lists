@@ -6,8 +6,8 @@ export class Node {
 }
 
 export class LinkedList {
-    constructor(HEAD = null) {
-        this.HEAD = new Node();
+    constructor(headValue) {
+        this.HEAD = new Node(headValue);
     }
 
     prepend(value) {
@@ -29,6 +29,20 @@ export class LinkedList {
             currentNode = currentNode.nextNode;
         }
         return false;
+    }
+
+    pop() {
+        let currentNode = this.HEAD;
+        let previousNode = this.HEAD;
+        while (currentNode.nextNode) {
+            previousNode = currentNode;
+            currentNode = currentNode.nextNode;
+        }
+        if (currentNode == this.HEAD) {
+            this.HEAD.value = null;
+        } else {
+            previousNode.nextNode = null;
+        }
     }
 
     find(value) {
