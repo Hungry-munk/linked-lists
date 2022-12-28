@@ -1,0 +1,20 @@
+{
+    "name": "linked-lists",
+    "version": "1.0.0",
+    "description": "more projects on data structures algoiruthm stuff, this time using linked lists. Yepee...",
+    "main": "index.js",
+    "type": "module",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Hungry-munk/linked-lists.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Hungry-munk/linked-lists/issues"
+    },
+    "homepage": "https://github.com/Hungry-munk/linked-lists#readme"
+}
